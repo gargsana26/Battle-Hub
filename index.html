@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Battle Hub | Premium Esports Tournament Platform</title>
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Battle Hub is the ultimate esports tournament management platform. Join live matches, view real-time brackets, register teams, and participate in community action.">
+  <meta name="keywords" content="Esports, Tournament, Gaming, Bracket, Scoreboard, Live Match, Battle Hub, Cyberpunk, Valorant, CS2, League of Legends">
+  
+  <!-- Premium Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Separate Stylesheet Link -->
+  <link rel="stylesheet" href="styles.css">
+  
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="loading-state">
+
+  <!-- Interactive Arena Particle Background Canvas -->
+  <canvas id="arena-background"></canvas>
+  <div class="spotlight spotlight-1"></div>
+  <div class="spotlight spotlight-2"></div>
+  <div class="grid-overlay"></div>
+
+  <!-- Custom Cursor Glow -->
+  <div class="custom-cursor-glow" id="cursor-glow"></div>
+
+  <!-- Cinematic Glitch Loading Screen (Preloader) -->
+  <div id="preloader">
+    <div class="preloader-content">
+      <div class="hologram-logo-container">
+        <div class="hologram-logo">BH</div>
+        <div class="hologram-glitch-layer">BH</div>
+        <div class="hologram-glitch-layer-2">BH</div>
+      </div>
+      <h1 class="glitch-text" data-text="BATTLE HUB">BATTLE HUB</h1>
+      <div class="loader-terminal">
+        <p class="terminal-line">> ESTABLISHING SECURE CONNECTION...</p>
+        <p class="terminal-line">> INITIALIZING NEURAL ARENA NET...</p>
+        <p class="terminal-line">> RETRIEVING LIVE MATCH DATA...</p>
+        <p class="terminal-line">> STATUS: <span class="highlight-green">ONLINE</span></p>
+      </div>
+      <div class="progress-bar-wrapper">
+        <div class="progress-bar-fill" id="preloader-bar"></div>
+      </div>
+      <div class="loading-percentage" id="preloader-pct">0%</div>
+    </div>
+  </div>
+
+  <!-- Floating Glass Navigation -->
+  <nav class="glass-nav" id="main-nav">
+    <div class="nav-container">
+      <a href="#" class="nav-logo">
+        <span class="logo-accent">BH</span> BATTLE HUB
+      </a>
+      
+      <div class="nav-menu" id="nav-menu">
+        <a href="#hero" class="nav-link active" data-target="hero">
+          <i data-lucide="home"></i> Home
+        </a>
+        <a href="#dashboard" class="nav-link" data-target="dashboard">
+          <i data-lucide="layout-dashboard"></i> Dashboard
+        </a>
+        <a href="#bracket" class="nav-link" data-target="bracket">
+          <i data-lucide="git-merge"></i> Bracket
+        </a>
+        <a href="#match-center" class="nav-link" data-target="match-center">
+          <i data-lucide="tv"></i> Live Center
+        </a>
+        <a href="#leaderboard" class="nav-link" data-target="leaderboard">
+          <i data-lucide="trophy"></i> Leaderboard
+        </a>
+        <a href="#teams-players" class="nav-link" data-target="teams-players">
+          <i data-lucide="users"></i> Squads
+        </a>
+        <a href="#fan-zone" class="nav-link" data-target="fan-zone">
+          <i data-lucide="message-square"></i> Fan Zone
+        </a>
+        <a href="#register" class="btn-nav-cta">
+          <i data-lucide="user-plus"></i> Join Arena
+        </a>
+      </div>
+
+      <button class="hamburger-menu" id="mobile-toggle" aria-label="Toggle menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Main Viewport Wrap -->
+  <main class="content-wrapper fade-in-section">
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="section hero-section">
+      <div class="container hero-container">
+        <div class="badge-glow animated-badge">
+          <i data-lucide="flame" class="icon-spin"></i> HACKATHON 2026 SPECIAL STAGE
+        </div>
+        
+        <h1 class="hero-title">
+          BATTLE <span class="glow-cyan-text">HUB</span>
+        </h1>
+        
+        <p class="hero-subtitle">
+          The Ultimate Next-Gen Esports Tournament Platform
+        </p>
+
+        <!-- Live Countdown & Event Banner -->
+        <div class="hero-countdown-card glass-panel">
+          <div class="card-glow-border"></div>
+          <div class="countdown-header">
+            <span class="live-pulse-dot"></span> NEXT CHAMPIONSHIP FINALS BEGIN IN
+          </div>
+          <div class="countdown-timer" id="hero-countdown">
+            <div class="time-block"><span class="number" id="cd-d">02</span><span class="label">Days</span></div>
+            <div class="time-block"><span class="number" id="cd-h">14</span><span class="label">Hours</span></div>
+            <div class="time-block"><span class="number" id="cd-m">32</span><span class="label">Mins</span></div>
+            <div class="time-block"><span class="number" id="cd-s">45</span><span class="label">Secs</span></div>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#register" class="btn-glow btn-primary">
+            <span class="btn-text">Register Team</span>
+            <span class="btn-glow-layer"></span>
+            <i data-lucide="shield-alert"></i>
+          </a>
+          <a href="#match-center" class="btn-glow btn-secondary">
+            <span class="btn-text">Watch Live</span>
+            <span class="btn-glow-layer"></span>
+            <i data-lucide="play-circle"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DASHBOARD SECTION -->
+    <section id="dashboard" class="section container-padding">
+      <div class="section-header">
+        <div class="header-pre">REAL-TIME TELEMETRY</div>
+        <h2 class="section-title">THE ARENA <span class="gradient-text">DASHBOARD</span></h2>
+      </div>
+
+      <!-- Quick Telemetry Grid -->
+      <div class="dashboard-stats-grid">
+        <div class="stat-card glass-panel">
+          <div class="card-glow-border"></div>
+          <div class="stat-icon-wrap bg-cyan-dim"><i data-lucide="swords" class="color-cyan"></i></div>
+          <div class="stat-info">
+            <h3 class="stat-num counter" data-target="16">0</h3>
+            <p class="stat-label">Active Tournaments</p>
+          </div>
+        </div>
+        <div class="stat-card glass-panel">
+          <div class="card-glow-border"></div>
+          <div class="stat-icon-wrap bg-pink-dim"><i data-lucide="gem" class="color-pink"></i></div>
+          <div class="stat-info">
+            <h3 class="stat-num">$<span class="counter" data-target="250">0</span>K</h3>
+            <p class="stat-label">Prize Pools Live</p>
+          </div>
+        </div>
+        <div class="stat-card glass-panel">
+          <div class="card-glow-border"></div>
+          <div class="stat-icon-wrap bg-purple-dim"><i data-lucide="shield" class="color-purple"></i></div>
+          <div class="stat-info">
+            <h3 class="stat-num counter" data-target="512">0</h3>
+            <p class="stat-label">Teams Registered</p>
+          </div>
+        </div>
+        <div class="stat-card glass-panel">
+          <div class="card-glow-border"></div>
+          <div class="stat-icon-wrap bg-blue-dim"><i data-lucide="gamepad-2" class="color-blue"></i></div>
+          <div class="stat-info">
+            <h3 class="stat-num counter" data-target="2560">0</h3>
+            <p class="stat-label">Active Combatants</p>
+          </div>
+        </div>
+        <div class="stat-card glass-panel">
+          <div class="card-glow-border"></div>
+          <div class="stat-icon-wrap bg-green-dim"><i data-lucide="activity" class="color-green"></i></div>
+          <div class="stat-info">
+            <h3 class="stat-num counter" data-target="8">0</h3>
+            <p class="stat-label">Matches Streaming</p>
+          </div>
+        </div>
+        <div class="stat-card glass-panel">
+          <div class="card-glow-border"></div>
+          <div class="stat-icon-wrap bg-gold-dim"><i data-lucide="eye" class="color-gold"></i></div>
+          <div class="stat-info">
+            <h3 class="stat-num"><span class="counter" data-target="82.4">0</span>K</h3>
+            <p class="stat-label">Concurrent Viewers</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Tournament Overview Panel -->
+      <div class="dashboard-details-row">
+        <!-- Live Matches Feed -->
+        <div class="dash-column glass-panel">
+          <div class="card-glow-border"></div>
+          <div class="panel-header">
+            <h3 class="panel-title"><i data-lucide="play" class="pulse-icon"></i> Live Match Feed</h3>
+            <span class="live-tag">LIVE UPDATES</span>
+          </div>
+          <div class="panel-content" id="dashboard-match-ticker">
+            <!-- Programmatically populated -->
+          </div>
+        </div>
+
+        <!-- Highlighted Tournament Overview -->
+        <div class="dash-column glass-panel flex-column-between">
+          <div class="card-glow-border"></div>
+          <div class="panel-header">
+            <h3 class="panel-title"><i data-lucide="award"></i> Featured Event</h3>
+            <span class="neon-badge-green">RECRUITING</span>
+          </div>
+          <div class="featured-tournament-body">
+            <div class="featured-game-banner">
+              <span class="game-tag">VALORANT</span>
+              <h4>Cybernetic Open 2026</h4>
+            </div>
+            <div class="details-list">
+              <div class="details-item"><span class="label">Organizer</span> <span class="value">FrontFusion</span></div>
+              <div class="details-item"><span class="label">Prize Pool</span> <span class="value color-gold">$120,000 USD</span></div>
+              <div class="details-item"><span class="label">Region</span> <span class="value">Global / Online</span></div>
+              <div class="details-item"><span class="label">Format</span> <span class="value">5v5 Double Elimination</span></div>
+            </div>
+            <div class="progress-container">
+              <div class="progress-info">
+                <span>Slots Filled</span>
+                <span class="color-cyan">48/64 Teams</span>
+              </div>
+              <div class="progress-bar-bg">
+                <div class="progress-bar-fill" style="width: 75%;"></div>
+              </div>
+            </div>
+          </div>
+          <a href="#register" class="btn-glow btn-primary w-full text-center">
+            <span class="btn-text">Claim Slot</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SCHEDULE TIMELINE -->
+    <section id="schedule" class="section container-padding timeline-section">
+      <div class="section-header center-align">
+        <div class="header-pre">CHAMPIONSHIP CHRONOLOGY</div>
+        <h2 class="section-title">THE ROAD TO <span class="glow-pink-text">VICTORY</span></h2>
+      </div>
+
+      <div class="timeline-container">
+        <div class="timeline-progress-bar">
+          <div class="timeline-progress-fill" id="timeline-progress"></div>
+        </div>
+        
+        <div class="timeline-node completed active" data-progress="20">
+          <div class="node-marker"><i data-lucide="clipboard-list"></i></div>
+          <div class="node-content glass-panel">
+            <span class="node-date">JULY 1 - JULY 15</span>
+            <h3>Registration</h3>
+            <p>Teams sign up, upload rosters, and verify seeds.</p>
+            <span class="status-badge complete">Completed</span>
+          </div>
+        </div>
+
+        <div class="timeline-node active" data-progress="50">
+          <div class="node-marker"><i data-lucide="grid"></i></div>
+          <div class="node-content glass-panel">
+            <span class="node-date">JULY 16 - JULY 20</span>
+            <h3>Group Stage</h3>
+            <p>Round-robin battles. Top 16 advance to brackets.</p>
+            <span class="status-badge in-progress">Active Phase</span>
+          </div>
+        </div>
+
+        <div class="timeline-node" data-progress="70">
+          <div class="node-marker"><i data-lucide="git-branch"></i></div>
+          <div class="node-content glass-panel">
+            <span class="node-date">JULY 22 - JULY 24</span>
+            <h3>Quarter Finals</h3>
+            <p>Single elimination clashes live on stream.</p>
+            <span class="status-badge upcoming">Upcoming</span>
+          </div>
+        </div>
+
+        <div class="timeline-node" data-progress="90">
+          <div class="node-marker"><i data-lucide="zap"></i></div>
+          <div class="node-content glass-panel">
+            <span class="node-date">JULY 25</span>
+            <h3>Semi Finals</h3>
+            <p>The top 4 combatants fight for final placement.</p>
+            <span class="status-badge upcoming">Upcoming</span>
+          </div>
+        </div>
+
+        <div class="timeline-node" data-progress="100">
+          <div class="node-marker"><i data-lucide="crown"></i></div>
+          <div class="node-content glass-panel">
+            <span class="node-date">JULY 26</span>
+            <h3>Grand Finals</h3>
+            <p>Final championship battle. Crowning the grand victor.</p>
+            <span class="status-badge upcoming">Upcoming</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOURNAMENT BRACKET -->
+    <section id="bracket" class="section container-padding">
+      <div class="section-header">
+        <div class="header-pre">CHAMPIONSHIP LADDER</div>
+        <h2 class="section-title">INTERACTIVE <span class="gradient-text">BRACKET</span></h2>
+        <p class="section-desc">Hover over a team to view their victory path. Click any team card to review their roster profile.</p>
+      </div>
+
+      <div class="bracket-outer-wrap">
+        <div class="mobile-scroll-indicator">
+          <i data-lucide="arrow-left-right"></i> Swipe to explore bracket
+        </div>
+        <div class="bracket-scroll-container">
+          <div class="bracket-grid">
+            
+            <!-- Quarter Finals -->
+            <div class="bracket-round">
+              <h4 class="round-title">Quarter Finals</h4>
+              
+              <div class="bracket-matchup">
+                <div class="match-meta">Match 1 - BO3</div>
+                <div class="team-slot glass-panel match-winner" data-team="apex" id="t-apex-1">
+                  <div class="team-info-row">
+                    <span class="team-seed">#1</span>
+                    <span class="team-name">Apex Predators</span>
+                  </div>
+                  <span class="team-score">2</span>
+                </div>
+                <div class="team-slot glass-panel" data-team="sentinels" id="t-sentinels-1">
+                  <div class="team-info-row">
+                    <span class="team-seed">#8</span>
+                    <span class="team-name">Sentinels</span>
+                  </div>
+                  <span class="team-score">0</span>
+                </div>
+              </div>
+
+              <div class="bracket-matchup">
+                <div class="match-meta">Match 2 - BO3</div>
+                <div class="team-slot glass-panel match-winner" data-team="cloud9" id="t-cloud9-1">
+                  <div class="team-info-row">
+                    <span class="team-seed">#4</span>
+                    <span class="team-name">Cloud9</span>
+                  </div>
+                  <span class="team-score">2</span>
+                </div>
+                <div class="team-slot glass-panel" data-team="natus" id="t-natus-1">
+                  <div class="team-info-row">
+                    <span class="team-seed">#5</span>
+                    <span class="team-name">Natus Vincere</span>
+                  </div>
+                  <span class="team-score">1</span>
+                </div>
+              </div>
+
+              <div class="bracket-matchup">
+                <div class="match-meta">Match 3 - BO3</div>
+                <div class="team-slot glass-panel match-winner" data-team="fnatic" id="t-fnatic-1">
+                  <div class="team-info-row">
+                    <span class="team-seed">#2</span>
+                    <span class="team-name">Fnatic</span>
+                  </div>
+                  <span class="team-score">2</span>
+                </div>
+                <div class="team-slot glass-panel" data-team="faze" id="t-faze-1">
+                  <div class="team-info-row">
+                    <span class="team-seed">#7</span>
+                    <span class="team-name">FaZe Clan</span>
+                  </div>
+                  <span class="team-score">1</span>
+                </div>
+              </div>
+
+              <div class="bracket-matchup">
+                <div class="match-meta">Match 4 - BO3</div>
+                <div class="team-slot glass-panel match-winner" data-team="liquid" id="t-liquid-1">
+                  <div class="team-info-row">
+                    <span class="team-seed">#3</span>
+                    <span class="team-name">Team Liquid</span>
+                  </div>
+                  <span class="team-score">2</span>
+                </div>
+                <div class="team-slot glass-panel" data-team="g2" id="t-g2-1">
+                  <div class="team-info-row">
+                    <span class="team-seed">#6</span>
+                    <span class="team-name">G2 Esports</span>
+                  </div>
+                  <span class="team-score">0</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Semi Finals -->
+            <div class="bracket-round">
+              <h4 class="round-title">Semi Finals</h4>
+              
+              <div class="bracket-matchup">
+                <div class="match-meta">Match 5 - BO3</div>
+                <div class="team-slot glass-panel match-winner" data-team="apex" id="t-apex-2">
+                  <div class="team-info-row">
+                    <span class="team-seed">#1</span>
+                    <span class="team-name">Apex Predators</span>
+                  </div>
+                  <span class="team-score">2</span>
+                </div>
+                <div class="team-slot glass-panel" data-team="cloud9" id="t-cloud9-2">
+                  <div class="team-info-row">
+                    <span class="team-seed">#4</span>
+                    <span class="team-name">Cloud9</span>
+                  </div>
+                  <span class="team-score">1</span>
+                </div>
+              </div>
+
+              <div class="bracket-matchup">
+                <div class="match-meta">Match 6 - BO3</div>
+                <div class="team-slot glass-panel match-winner" data-team="fnatic" id="t-fnatic-2">
+                  <div class="team-info-row">
+                    <span class="team-seed">#2</span>
+                    <span class="team-name">Fnatic</span>
+                  </div>
+                  <span class="team-score">2</span>
+                </div>
+                <div class="team-slot glass-panel" data-team="liquid" id="t-liquid-2">
+                  <div class="team-info-row">
+                    <span class="team-seed">#3</span>
+                    <span class="team-name">Team Liquid</span>
+                  </div>
+                  <span class="team-score">0</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Grand Finals -->
+            <div class="bracket-round">
+              <h4 class="round-title">Grand Finals</h4>
+              
+              <div class="bracket-matchup grand-championship-slot">
+                <div class="match-meta">Match 7 - BO5</div>
+                <div class="team-slot glass-panel" data-team="apex" id="t-apex-3">
+                  <div class="team-info-row">
+                    <span class="team-seed">#1</span>
+                    <span class="team-name">Apex Predators</span>
+                  </div>
+                  <span class="team-score">TBD</span>
+                </div>
+                <div class="team-slot glass-panel" data-team="fnatic" id="t-fnatic-3">
+                  <div class="team-info-row">
+                    <span class="team-seed">#2</span>
+                    <span class="team-name">Fnatic</span>
+                  </div>
+                  <span class="team-score">TBD</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Champion -->
+            <div class="bracket-round champion-round">
+              <h4 class="round-title">Champion</h4>
+              <div class="champion-glow-card glass-panel text-center">
+                <div class="card-glow-border"></div>
+                <i data-lucide="crown" class="champion-crown-icon"></i>
+                <div class="champion-name" id="bracket-champion-name">PENDING...</div>
+                <p class="champion-subtitle">VALORANT CYBER OPEN 2026</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE MATCH CENTER -->
+    <section id="match-center" class="section container-padding">
+      <div class="section-header">
+        <div class="header-pre">ON-AIR SPECTATOR CONTROL</div>
+        <h2 class="section-title">LIVE MATCH <span class="glow-cyan-text">CENTER</span></h2>
+      </div>
+
+      <div class="match-center-grid">
+        <!-- Main Scoreboard Area -->
+        <div class="scoreboard-card glass-panel">
+          <div class="card-glow-border"></div>
+          <div class="live-match-header">
+            <div class="stream-live-pill"><span class="pulsing-red-dot"></span> LIVE DIRECT FEED</div>
+            <div class="game-title">CYBER OPEN MATCH 5 - GRAND FINALS</div>
+            <div class="stream-viewer-count"><i data-lucide="users"></i> 142,391 Watching</div>
+          </div>
+
+          <!-- Main Teams Versus Scoreboard -->
+          <div class="versus-scoreboard">
+            <div class="scoreboard-team left-team">
+              <div class="team-icon">APX</div>
+              <h3 class="team-name">Apex Predators</h3>
+              <span class="team-record">14-4 Streak</span>
+            </div>
+            
+            <div class="score-display">
+              <span class="score-num" id="live-score-left">12</span>
+              <div class="match-timer-wrap">
+                <span class="map-name">HAVEN</span>
+                <span class="live-timer" id="live-round-timer">01:14</span>
+                <span class="round-number">ROUND 21</span>
+              </div>
+              <span class="score-num" id="live-score-right">9</span>
+            </div>
+
+            <div class="scoreboard-team right-team">
+              <div class="team-icon pink-theme">FNC</div>
+              <h3 class="team-name">Fnatic</h3>
+              <span class="team-record">12-6 Streak</span>
+            </div>
+          </div>
+
+          <!-- Active Map & Game Score Timeline -->
+          <div class="scoreboard-details-grid">
+            <!-- Live Round-by-Round Log -->
+            <div class="scoreboard-stats-subcolumn">
+              <h4>Live Combat Log</h4>
+              <div class="combat-feed" id="live-combat-feed">
+                <!-- Programmatically populated -->
+              </div>
+            </div>
+            
+            <!-- Map pool list -->
+            <div class="scoreboard-maps-subcolumn">
+              <h4>Map Choices</h4>
+              <div class="maps-choice-list">
+                <div class="map-item passed">
+                  <span>1. Ascent</span> <span class="map-result APX-win">13 - 10 APX</span>
+                </div>
+                <div class="map-item passed">
+                  <span>2. Icebox</span> <span class="map-result FNC-win">8 - 13 FNC</span>
+                </div>
+                <div class="map-item active">
+                  <span>3. Haven</span> <span class="map-result color-cyan">Current Map</span>
+                </div>
+                <div class="map-item">
+                  <span>4. Sunset</span> <span class="map-result text-muted">Decider 1</span>
+                </div>
+                <div class="map-item">
+                  <span>5. Abyss</span> <span class="map-result text-muted">Decider 2</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Performance Stats Overlay / MVP -->
+        <div class="performance-stats-card glass-panel">
+          <div class="card-glow-border"></div>
+          <div class="panel-header border-bottom">
+            <h3 class="panel-title"><i data-lucide="zap"></i> Top Combatants</h3>
+            <span class="text-muted small">HAVEN LIVE STATS</span>
+          </div>
+
+          <div class="combat-stats-list">
+            <div class="player-stat-row">
+              <div class="player-meta">
+                <span class="rank-badge font-bold">MVP</span>
+                <span class="player-name">Chronos (APX)</span>
+              </div>
+              <div class="stat-values">
+                <span class="stat-item"><span class="lbl">KDA</span> <strong class="color-green">24/10/8</strong></span>
+                <span class="stat-item"><span class="lbl">ADR</span> <strong>214</strong></span>
+              </div>
+            </div>
+
+            <div class="player-stat-row">
+              <div class="player-meta">
+                <span class="rank-badge bg-faded">#2</span>
+                <span class="player-name">Boaster (FNC)</span>
+              </div>
+              <div class="stat-values">
+                <span class="stat-item"><span class="lbl">KDA</span> <strong class="color-cyan">18/12/12</strong></span>
+                <span class="stat-item"><span class="lbl">ADR</span> <strong>176</strong></span>
+              </div>
+            </div>
+
+            <div class="player-stat-row">
+              <div class="player-meta">
+                <span class="rank-badge bg-faded">#3</span>
+                <span class="player-name">Derke (FNC)</span>
+              </div>
+              <div class="stat-values">
+                <span class="stat-item"><span class="lbl">KDA</span> <strong class="color-pink">17/14/4</strong></span>
+                <span class="stat-item"><span class="lbl">ADR</span> <strong>169</strong></span>
+              </div>
+            </div>
+
+            <div class="player-stat-row">
+              <div class="player-meta">
+                <span class="rank-badge bg-faded">#4</span>
+                <span class="player-name">ViperX (APX)</span>
+              </div>
+              <div class="stat-values">
+                <span class="stat-item"><span class="lbl">KDA</span> <strong class="color-cyan">16/13/9</strong></span>
+                <span class="stat-item"><span class="lbl">ADR</span> <strong>158</strong></span>
+              </div>
+            </div>
+
+            <div class="player-stat-row">
+              <div class="player-meta">
+                <span class="rank-badge bg-faded">#5</span>
+                <span class="player-name">Leo (FNC)</span>
+              </div>
+              <div class="stat-values">
+                <span class="stat-item"><span class="lbl">KDA</span> <strong class="color-cyan">14/14/15</strong></span>
+                <span class="stat-item"><span class="lbl">ADR</span> <strong>132</strong></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mvp-highlight-banner glass-panel">
+            <div class="mvp-header-label">CURRENT ROUND MVP</div>
+            <div class="mvp-profile-summary">
+              <div class="mvp-logo">APX</div>
+              <div class="mvp-info-text">
+                <h5>APX Chronos</h5>
+                <p>Triple kill on Site A defense</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEADERBOARD -->
+    <section id="leaderboard" class="section container-padding">
+      <div class="section-header">
+        <div class="header-pre">GLOBAL BRACKET RANKINGS</div>
+        <h2 class="section-title">CHAMPIONSHIP <span class="gradient-text">LEADERBOARD</span></h2>
+      </div>
+
+      <div class="leaderboard-tabs-wrapper glass-panel">
+        <div class="card-glow-border"></div>
+        <div class="tabs-header">
+          <button class="tab-btn active" id="leaderboard-tab-teams">Teams Standings</button>
+          <button class="tab-btn" id="leaderboard-tab-players">Individual Kill Leaders</button>
+        </div>
+
+        <div class="table-container">
+          <table class="leaderboard-table" id="leaderboard-table">
+            <thead>
+              <tr id="leaderboard-headers">
+                <th>Rank</th>
+                <th>Squad / Competitor</th>
+                <th>Points</th>
+                <th>Matches Won</th>
+                <th>Matches Lost</th>
+                <th>K/D Ratio</th>
+                <th>Performance Status</th>
+              </tr>
+            </thead>
+            <tbody id="leaderboard-body">
+              <!-- Populated dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- SQUADS & PLAYERS PROFILES -->
+    <section id="teams-players" class="section container-padding">
+      <div class="section-header">
+        <div class="header-pre">TACTICAL SQUAD DOSSIERS</div>
+        <h2 class="section-title">TEAMS & <span class="glow-pink-text">ROSTERS</span></h2>
+        <p class="section-desc">Select a squad to inspect their players. Hover over player files to view dynamic radar stats.</p>
+      </div>
+
+      <!-- Teams Grid -->
+      <div class="teams-container-grid">
+        <!-- Team Card 1 -->
+        <div class="team-profile-card glass-panel" data-team-id="apex">
+          <div class="card-glow-border"></div>
+          <div class="team-banner bg-cyan-mesh">
+            <span class="rank-tag">#1 SEED</span>
+          </div>
+          <div class="team-card-info">
+            <div class="team-badge-circle">APX</div>
+            <h3 class="team-title">Apex Predators</h3>
+            <div class="team-meta-stats">
+              <span class="meta-item"><strong>NA</strong> Region</span>
+              <span class="meta-item"><strong>89%</strong> Win Rate</span>
+              <span class="meta-item"><strong>45.2K</strong> Fans</span>
+            </div>
+            <p class="team-desc">Masters of hyper-aggressive tactical executes. Reining champions of the Winter Cup.</p>
+            <div class="team-achievements">
+              <span class="achieve-badge"><i data-lucide="award"></i> VCT Champ 2025</span>
+              <span class="achieve-badge"><i data-lucide="shield-check"></i> RedBull Home</span>
+            </div>
+            <button class="btn-glow btn-secondary btn-inspect-team" data-team="apex">
+              Inspect Roster
+            </button>
+          </div>
+        </div>
+
+        <!-- Team Card 2 -->
+        <div class="team-profile-card glass-panel" data-team-id="fnatic">
+          <div class="card-glow-border"></div>
+          <div class="team-banner bg-pink-mesh">
+            <span class="rank-tag">#2 SEED</span>
+          </div>
+          <div class="team-card-info">
+            <div class="team-badge-circle pink-theme">FNC</div>
+            <h3 class="team-title">Fnatic</h3>
+            <div class="team-meta-stats">
+              <span class="meta-item"><strong>EU</strong> Region</span>
+              <span class="meta-item"><strong>81%</strong> Win Rate</span>
+              <span class="meta-item"><strong>89.1K</strong> Fans</span>
+            </div>
+            <p class="team-desc">Renowned for flawless utility usage, coordination, and Boaster's tactical masterclasses.</p>
+            <div class="team-achievements">
+              <span class="achieve-badge"><i data-lucide="award"></i> Masters Tokyo</span>
+              <span class="achieve-badge"><i data-lucide="shield-check"></i> VCT EMEA</span>
+            </div>
+            <button class="btn-glow btn-secondary btn-inspect-team" data-team="fnatic">
+              Inspect Roster
+            </button>
+          </div>
+        </div>
+
+        <!-- Team Card 3 -->
+        <div class="team-profile-card glass-panel" data-team-id="cloud9">
+          <div class="card-glow-border"></div>
+          <div class="team-banner bg-blue-mesh">
+            <span class="rank-tag">#4 SEED</span>
+          </div>
+          <div class="team-card-info">
+            <div class="team-badge-circle blue-theme">C9</div>
+            <h3 class="team-title">Cloud9</h3>
+            <div class="team-meta-stats">
+              <span class="meta-item"><strong>NA</strong> Region</span>
+              <span class="meta-item"><strong>74%</strong> Win Rate</span>
+              <span class="meta-item"><strong>104K</strong> Fans</span>
+            </div>
+            <p class="team-desc">Adapting, evolving, and bringing unexpected drafts to the cyber arena. The crowd favorites.</p>
+            <div class="team-achievements">
+              <span class="achieve-badge"><i data-lucide="award"></i> NA Challengers</span>
+              <span class="achieve-badge"><i data-lucide="shield-check"></i> Spark Series</span>
+            </div>
+            <button class="btn-glow btn-secondary btn-inspect-team" data-team="cloud9">
+              Inspect Roster
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Player Detail Cards -->
+      <div class="roster-inspection-wrap" id="roster-view-container">
+        <div class="roster-header-row">
+          <h3 class="roster-section-title">ROSTER DOSSIER: <span class="glow-cyan-text" id="inspect-team-title">Apex Predators</span></h3>
+          <button class="close-roster-btn" id="close-roster-btn"><i data-lucide="x"></i> Hide Roster</button>
+        </div>
+        
+        <div class="players-cards-grid" id="inspect-players-grid">
+          <!-- Populated programmatically -->
+        </div>
+      </div>
+    </section>
+
+    <!-- FAN ZONE SECTION -->
+    <section id="fan-zone" class="section container-padding">
+      <div class="section-header">
+        <div class="header-pre">SPECTATOR INTERACTIVE SYSTEM</div>
+        <h2 class="section-title">THE FAN <span class="glow-cyan-text">ZONE</span></h2>
+      </div>
+
+      <div class="fanzone-grid">
+        <!-- Live Chat Simulator -->
+        <div class="fanzone-chat-column glass-panel">
+          <div class="card-glow-border"></div>
+          <div class="panel-header">
+            <div class="chat-status"><span class="pulsing-red-dot"></span> LIVE ARENA CHAT</div>
+            <div class="online-counter"><i data-lucide="users"></i> <span id="chat-user-count">4,204</span> online</div>
+          </div>
+          
+          <div class="chat-messages-container" id="chat-messages-box">
+            <!-- Simulated messages appear here -->
+          </div>
+
+          <div class="emoji-reaction-bar">
+            <button class="emoji-btn" data-reaction="🔥">🔥 <span class="badge">12</span></button>
+            <button class="emoji-btn" data-reaction="😮">😮 <span class="badge">4</span></button>
+            <button class="emoji-btn" data-reaction="👑">👑 <span class="badge">9</span></button>
+            <button class="emoji-btn" data-reaction="💥">💥 <span class="badge">22</span></button>
+            <button class="emoji-btn" data-reaction="🤯">🤯 <span class="badge">15</span></button>
+          </div>
+
+          <div class="chat-input-row" id="chat-input-form-div">
+            <input type="text" id="chat-input-field" placeholder="Send transmission to arena..." maxlength="100" required>
+            <button type="button" id="chat-send-btn-el" class="chat-send-btn"><i data-lucide="send"></i></button>
+          </div>
+        </div>
+
+        <!-- Fan Activities / Poll & Hashtags -->
+        <div class="fanzone-info-column flex-column-between">
+          
+          <!-- Live Poll Card -->
+          <div class="glass-panel activity-subcard">
+            <div class="card-glow-border"></div>
+            <div class="panel-header border-bottom">
+              <h3 class="panel-title"><i data-lucide="pie-chart" class="color-pink"></i> Live Match Poll</h3>
+              <span class="badge-active">ACTIVE VOTE</span>
+            </div>
+            <div class="poll-body">
+              <p class="poll-question">Who will claim the Cyber Open 2026 Championship Title?</p>
+              
+              <div class="poll-options-list">
+                <button class="poll-option-row" data-option="apx">
+                  <span class="option-label">Apex Predators (APX)</span>
+                  <span class="option-pct" id="poll-apx-pct">54%</span>
+                  <div class="poll-progress-bg"><div class="poll-progress-bar bg-cyan" id="poll-apx-bar" style="width: 54%;"></div></div>
+                </button>
+
+                <button class="poll-option-row" data-option="fnc">
+                  <span class="option-label">Fnatic (FNC)</span>
+                  <span class="option-pct" id="poll-fnc-pct">46%</span>
+                  <div class="poll-progress-bg"><div class="poll-progress-bar bg-pink" id="poll-fnc-bar" style="width: 46%;"></div></div>
+                </button>
+              </div>
+              <p class="poll-footer-text">Total Votes: <span id="total-poll-votes">18,342</span> • Poll ends in 12m</p>
+            </div>
+          </div>
+
+          <!-- Fan Activity Wall Feed -->
+          <div class="glass-panel activity-subcard">
+            <div class="card-glow-border"></div>
+            <div class="panel-header border-bottom">
+              <h3 class="panel-title"><i data-lucide="hash" class="color-purple"></i> Trending Hashtags</h3>
+            </div>
+            <div class="hashtags-list">
+              <div class="hashtag-item">
+                <span class="tag-name">#BattleHub2026</span>
+                <span class="tag-volume">142.9K transmissions</span>
+              </div>
+              <div class="hashtag-item">
+                <span class="tag-name">#APXvsFNC</span>
+                <span class="tag-volume">92.4K transmissions</span>
+              </div>
+              <div class="hashtag-item">
+                <span class="tag-name">#ChronosMVP</span>
+                <span class="tag-volume">43.8K transmissions</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- TOURNAMENT REGISTRATION -->
+    <section id="register" class="section container-padding registration-section">
+      <div class="registration-outer-card glass-panel">
+        <div class="card-glow-border"></div>
+        <div class="registration-header-block">
+          <div class="glow-accent-dot"></div>
+          <h2>REGISTRATION PORTAL</h2>
+          <p>Join the next cyber tournament. Deploy your team and secure your slot in the qualifiers.</p>
+        </div>
+
+        <form class="registration-form" id="registration-wizard" onsubmit="return false;">
+          <div class="form-grid">
+            
+            <!-- Team Name -->
+            <div class="input-group">
+              <input type="text" id="reg-team-name" required placeholder=" ">
+              <label for="reg-team-name"><i data-lucide="shield"></i> Team Squad Name</label>
+              <span class="focus-line"></span>
+            </div>
+
+            <!-- Captain Name -->
+            <div class="input-group">
+              <input type="text" id="reg-captain" required placeholder=" ">
+              <label for="reg-captain"><i data-lucide="user"></i> Team Leader / Captain</label>
+              <span class="focus-line"></span>
+            </div>
+
+            <!-- Team Contact Email -->
+            <div class="input-group">
+              <input type="email" id="reg-email" required placeholder=" ">
+              <label for="reg-email"><i data-lucide="mail"></i> Roster Contact Email</label>
+              <span class="focus-line"></span>
+            </div>
+
+            <!-- Game Selection -->
+            <div class="input-group select-group">
+              <select id="reg-game" required>
+                <option value="" disabled selected hidden></option>
+                <option value="valorant">Valorant (5v5)</option>
+                <option value="cs2">Counter-Strike 2 (5v5)</option>
+                <option value="league">League of Legends (5v5)</option>
+                <option value="apex">Apex Legends (Trios)</option>
+              </select>
+              <label for="reg-game"><i data-lucide="gamepad-2"></i> Select Battle Arena</label>
+              <span class="focus-line"></span>
+            </div>
+
+            <!-- Region Selection -->
+            <div class="input-group select-group">
+              <select id="reg-region" required>
+                <option value="" disabled selected hidden></option>
+                <option value="na">North America (NA)</option>
+                <option value="eu">Europe (EU)</option>
+                <option value="ap">Asia Pacific (APAC)</option>
+                <option value="latam">Latin America (LATAM)</option>
+              </select>
+              <label for="reg-region"><i data-lucide="globe"></i> Server Region</label>
+              <span class="focus-line"></span>
+            </div>
+
+            <!-- Logo Upload -->
+            <div class="file-upload-wrapper">
+              <div class="upload-dropzone" id="logo-dropzone">
+                <i data-lucide="upload-cloud" class="upload-icon"></i>
+                <div class="upload-text">
+                  <span class="highlight">Click to upload</span> or drag squad emblem (PNG/JPG)
+                </div>
+                <input type="file" id="reg-logo" accept="image/*" class="file-hidden-input">
+                <div class="file-preview-wrap hidden" id="logo-preview-box">
+                  <img src="" id="logo-preview-img" alt="Uploaded emblem">
+                  <span id="logo-preview-name">emblem.png</span>
+                  <button type="button" class="remove-btn" id="remove-logo-btn"><i data-lucide="trash-2"></i></button>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-footer-action">
+            <button type="button" class="btn-glow btn-primary w-full text-center" id="submit-registration-btn">
+              <span class="btn-text">Submit Squad Dossier</span>
+              <span class="btn-glow-layer"></span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- SUCCESS POPUP MODAL -->
+  <div class="success-overlay" id="success-modal">
+    <div class="success-card glass-panel text-center">
+      <div class="card-glow-border"></div>
+      <div class="success-badge-circle"><i data-lucide="check-circle-2"></i></div>
+      <h2>TRANSMISSION ACCEPTED</h2>
+      <p>Your team <strong class="color-cyan" id="success-team-display">APEX SQUAD</strong> has been enrolled successfully in the tournament pipeline.</p>
+      <p class="subtext">A neural notification packet has been sent to your captain's email. Monitor your console for updates.</p>
+      <button class="btn-glow btn-secondary" id="close-success-btn">Return to Deck</button>
+    </div>
+  </div>
+
+  <!-- DETAILS MODAL PANEL -->
+  <div class="drawer-overlay" id="team-details-drawer">
+    <div class="details-drawer glass-panel">
+      <div class="drawer-header">
+        <h3 id="drawer-team-title">Team Detail</h3>
+        <button class="close-drawer-btn" id="close-drawer-btn"><i data-lucide="x"></i></button>
+      </div>
+      <div class="drawer-body" id="drawer-team-body">
+        <!-- Dynamically rendered -->
+      </div>
+    </div>
+  </div>
+
+  <!-- FUTURISTIC FOOTER -->
+  <footer class="futuristic-footer">
+    <div class="footer-glow-line"></div>
+    <div class="container footer-container">
+      <div class="footer-grid">
+        
+        <!-- Platform Branding Info -->
+        <div class="footer-brand-column">
+          <div class="footer-logo">
+            <span class="logo-accent">BH</span> BATTLE HUB
+          </div>
+          <p class="footer-tagline">Connecting the globe's finest cyber athletes through a neural gaming grid. Battle Hub leads next-gen tournament management.</p>
+          <div class="social-links-row">
+            <a href="https://github.com" target="_blank" aria-label="GitHub" class="social-icon-btn"><i data-lucide="github"></i></a>
+            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn" class="social-icon-btn"><i data-lucide="linkedin"></i></a>
+            <a href="#" aria-label="Twitter" class="social-icon-btn"><i data-lucide="twitter"></i></a>
+          </div>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="footer-nav-column">
+          <h4>Navigation</h4>
+          <ul class="footer-links-list">
+            <li><a href="#hero">Arena Deck</a></li>
+            <li><a href="#dashboard">Dashboard</a></li>
+            <li><a href="#bracket">Interactive Ladder</a></li>
+            <li><a href="#match-center">Live scoreboards</a></li>
+          </ul>
+        </div>
+
+        <!-- System Status/Contact Info -->
+        <div class="footer-contact-column">
+          <h4>Arena Operations</h4>
+          <p class="contact-line"><i data-lucide="mail"></i> ops@battlehub.esports</p>
+          <p class="contact-line"><i data-lucide="map-pin"></i> Hackathon Stage 2026</p>
+          <p class="contact-line"><i data-lucide="server"></i> Host Server: NeuralGrid-04</p>
+        </div>
+
+        <!-- Dev Team Info -->
+        <div class="footer-team-column">
+          <h4>Development Team</h4>
+          <div class="team-title-row">
+            <span class="team-group-name"><i data-lucide="cpu"></i> FrontFusion</span>
+          </div>
+          <ul class="team-members-list">
+            <li><span class="dot-bullet green"></span> Ishreen</li>
+            <li><span class="dot-bullet cyan"></span> Sana</li>
+            <li><span class="dot-bullet purple"></span> Arshit</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-copyright-row">
+        <p>&copy; 2026 Battle Hub. Created with ❤️ by FrontFusion for Hackathon 2026. All rights reserved.</p>
+        <span class="copyright-version">SYS.VER.2.0.6-LIVE</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+</html>
